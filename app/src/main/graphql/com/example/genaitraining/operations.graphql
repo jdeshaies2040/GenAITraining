@@ -1,0 +1,50 @@
+query GetAllLifts {
+  allLifts {
+    id
+    name
+    status
+    capacity
+    night
+    elevationGain
+  }
+}
+
+query GetAllTrails {
+  allTrails {
+    id
+    name
+    status
+    difficulty
+    groomed
+    trees
+    night
+  }
+}
+
+mutation SetLiftStatus($id: ID!, $status: LiftStatus!) {
+  setLiftStatus(id: $id, status: $status) {
+    id
+    status
+  }
+}
+
+mutation SetTrailStatus($id: ID!, $status: TrailStatus!) {
+  setTrailStatus(id: $id, status: $status) {
+    id
+    status
+  }
+}
+
+subscription LiftStatusChange {
+  liftStatusChange {
+    id
+    status
+  }
+}
+
+subscription TrailStatusChange {
+  trailStatusChange {
+    id
+    status
+  }
+}
